@@ -6,7 +6,6 @@
     Layout = "~/Views/Shared/_ LayoutUser.cshtml";
 }
 
-<hr />
 <h2 class="text-center">SÁCH THEO NHÀ XUẤT BẢN</h2>
 <hr />
 @if (!Model.Any())
@@ -21,7 +20,7 @@ else
     <div class="row text-center">
         @foreach (var sach in Model)
         {
-            <div class="book-slide">
+            <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 sp">
                 <div class="thumbnail">
                     <img src="~/Images/@sach.AnhBia" alt="Thumbnail Image 1" class="img-responsive img-rounded imgbook size">
                     <div class="caption">
@@ -43,7 +42,7 @@ else
 Trang @(Model.PageCount<Model.PageNumber?0:Model.PageNumber)/@Model.PageCount
 
 <div class="text-center">
-    @Html.PagedListPager(Model, page => Url.Action("SachTheoChuDe", new { id = ViewBag.Id, page }))
+    @Html.PagedListPager(Model, page => Url.Action("SachTheoNhaXuatBan", new { id = ViewBag.Id, page }))
 </div>
 
 

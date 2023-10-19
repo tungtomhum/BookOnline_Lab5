@@ -36,6 +36,7 @@
             height: 50px;
             text-transform: uppercase;
         }
+
         .thongbao {
             position: fixed;
             width: 100%;
@@ -45,9 +46,26 @@
             z-index: 100;
             border: hidden;
         }
-        div.container{
+
+        div.container {
             width: 100%;
         }
+
+        .ellipsis-text {
+            max-width: 200px; 
+            white-space: nowrap; 
+            overflow: hidden; 
+            text-overflow: ellipsis;
+            cursor: pointer; 
+        }
+        .nav-link {
+            margin-left: 20px;
+            transition: color 0.3s; 
+        }
+
+            .nav-link:hover {
+                color: #000; 
+            }
     </style>
 
     <title>@ViewBag.Title</title>
@@ -84,7 +102,19 @@
                 location.reload();
             }, 1000);
         });
-    }
+        }
+        function showFullText(element) {
+            element.style.whiteSpace = "normal"; /* Hiển thị đầy đủ nội dung */
+            element.style.overflow = "visible";
+            element.style.textOverflow = "clip";
+        }
+
+        function showEllipsis(element) {
+            element.style.whiteSpace = "nowrap"; /* Trở lại hiển thị dấu "..." */
+            element.style.overflow = "hidden";
+            element.style.textOverflow = "ellipsis";
+        }
+
     </script>
 
 </body>

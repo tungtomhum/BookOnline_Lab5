@@ -185,6 +185,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\404.png" />
+    <Content Include="Images\blockchain.jpg" />
     <Content Include="Images\Bo bien bui bo.jpg" />
     <Content Include="Images\Chua troi co phai nha toan hoc.jpg" />
     <Content Include="Images\Chuyen doi lon.jpg" />
@@ -193,9 +194,11 @@
     <Content Include="Images\dangnhap.png" />
     <Content Include="Images\Kho tang truyen co tinh viet nam.jpg" />
     <Content Include="Images\123.jpg" />
+    <Content Include="Images\linux.jpg" />
     <Content Include="Images\LOGO.png" />
     <Content Include="Images\Loi noi doi vi dai cua nao.jpg" />
     <Content Include="Images\Mot vu no am vang.jpg" />
+    <Content Include="Images\n3.jpg" />
     <Content Include="Images\Nao toi nay an gi.jpg" />
     <Content Include="Images\Nguoi ai cap.jpg" />
     <Content Include="Images\Nhin len nhung chom sao.jpg" />
@@ -204,6 +207,7 @@
     <Content Include="Images\tcc.png" />
     <Content Include="Images\The gioi luong tu.jpg" />
     <Content Include="Images\Thuyet tương doi hep va rong.gif" />
+    <Content Include="Images\tienghan.jpg" />
     <Content Include="Images\Vi sinh vat vi tinh.jpg" />
     <Content Include="jsAccount\main.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />

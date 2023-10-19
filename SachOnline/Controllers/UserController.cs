@@ -121,33 +121,43 @@ namespace SachOnline.Controllers
             }
             else
             {
-                KHACHHANG kh = db.KHACHHANGs.SingleOrDefault(n => n.TaiKhoan == sTenDN && n.MatKhau == sMatKhau);
-                if (kh != null)
+                if (sTenDN == "admin" && sMatKhau == "admin") // Thay "admin" và "admin_password" bằng thông tin đăng nhập thực tế của Admin
                 {
-                    ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
-                    Session["TaiKhoan"] = kh;
-
-                    // Kiểm tra giỏ hàng
-                    var gioHang = Session["GioHang"] as List<GioHang>;
-                    if (gioHang != null && gioHang.Any())
-                    {
-                        // Giỏ hàng không trống, chuyển hướng đến trang DatHang
-                        return RedirectToAction("DatHang", "GioHang");
-                    }
-                    else
-                    {
-                        // Giỏ hàng trống, chuyển hướng đến trang Index
-                        return RedirectToAction("Index", "SachOnline");
-                    }
+                    // Đăng nhập thành công cho Admin
+                    Session["Admin"] = "admin"; // Lưu thông tin đăng nhập Admin vào Session
+                    return RedirectToAction("Index", "Admin", new { area = "Admin" });
                 }
                 else
                 {
-                    ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                    KHACHHANG kh = db.KHACHHANGs.SingleOrDefault(n => n.TaiKhoan == sTenDN && n.MatKhau == sMatKhau);
+                    if (kh != null)
+                    {
+                        ViewBag.ThongBao = "Chúc mừng đăng nhập thành công";
+                        Session["TaiKhoan"] = kh;
+
+                        // Kiểm tra giỏ hàng
+                        var gioHang = Session["GioHang"] as List<GioHang>;
+                        if (gioHang != null && gioHang.Any())
+                        {
+                            // Giỏ hàng không trống, chuyển hướng đến trang DatHang
+                            return RedirectToAction("DatHang", "GioHang");
+                        }
+                        else
+                        {
+                            // Giỏ hàng trống, chuyển hướng đến trang Index
+                            return RedirectToAction("Index", "SachOnline");
+                        }
+                    }
+                    else
+                    {
+                        ViewBag.ThongBao = "Tên đăng nhập hoặc mật khẩu không đúng";
+                    }
                 }
             }
 
             return View();
         }
+
 
         public ActionResult DangXuat()
         {
